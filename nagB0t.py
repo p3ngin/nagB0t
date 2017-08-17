@@ -62,7 +62,11 @@ class subModule():
 
 	def openExcel(self):
 		# open excel file to input daily exercise (don't want to automate writing to this as it'll be difficult with inputting different types of exercise) and call program to quit
-		os.startfile('C:\\Users\\SJuchno\\Documents\\python\\excelFiles\\dailyWorkouts.xlsx')
+
+		# I would suggest to read via environment variable
+		# os.environ['WORKOUT_FILE'] and have that set on your system
+
+		os.startfile(os.environ['WORKOUT_FILE'])
 		self.quitApp()
 
 	def quitApp(self):
