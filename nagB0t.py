@@ -14,18 +14,19 @@ until all parameters are completed. Time delay on hiding windows and showing aga
 '''
 
 class subModule():
-	def __init__(self, show_interval=3, hide_interval=6):
+	def __init__(self, paramText, show_interval=3, hide_interval=6):
 		# Constructs class parameters and builds GUI
 		self.hide_int = hide_interval  # In seconds
 		self.show_int = show_interval  # In seconds
+		self.paramText = paramText
 		self.parameterCount = 0
 
 		self.root = Tk()
 
 		# Default creation variables for GUI
 		self.root.title("***Alert***")
-		self.root.minsize(width=300, height=300)
-		self.label = Label(self.root, text="Have you exercised yet?")
+		self.root.minsize(width=300, height=150)
+		self.label = Label(self.root, text=paramText)
 		self.label.pack()
 
 		# Creates Buttons on GUI and calls commands for when Yes and No buttons are pressed.
@@ -62,7 +63,7 @@ class subModule():
 
 	def openExcel(self):
 		# open excel file to input daily exercise (don't want to automate writing to this as it'll be difficult with inputting different types of exercise) and call program to quit
-		os.startfile('C:\\Users\\SJuchno\\Documents\\python\\excelFiles\\dailyWorkouts.xlsx')
+		os.startfile('C:\\git\\nagB0t\\excelFiles\\dailyWorkouts.xlsx')
 		self.quitApp()
 
 	def quitApp(self):
@@ -72,5 +73,5 @@ class subModule():
 
 
 if __name__ == "__main__":
-	exercise = subModule()
+	exercise = subModule("Have you exercised yet?")
 	exercise.start()
