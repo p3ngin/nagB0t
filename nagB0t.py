@@ -63,7 +63,8 @@ class subModule():
 
 	def openExcel(self):
 		# open excel file to input daily exercise (don't want to automate writing to this as it'll be difficult with inputting different types of exercise) and call program to quit
-		os.startfile('C:\\git\\nagB0t\\excelFiles\\dailyWorkouts.xlsx')
+		exFile_dir = os.getcwd()
+		os.startfile((exFile_dir + '\\excelFiles\\dailyWorkouts.xlsx'))
 		self.quitApp()
 
 	def quitApp(self):
